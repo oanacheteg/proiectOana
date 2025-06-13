@@ -1,18 +1,19 @@
 package com.oana.proiect.repository;
 
-import org.springframework.stereotype.Repository;
+import com.oana.proiect.model.Author;
+
+import main.java.com.oana.proiect.repository.JpaRepository;
 
 import java.util.List;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import com.oana.proiect.model.Author;
-import com.oana.proiect.model.Book;
 
 @Repository
 public interface AuthorRepository extends JpaRepository<Author, Long> {
 
-    public Author findByName(String name);
+    List<Author> findByName(Long id);
 
-    public List<Author> geAuthorsList();
+    List<Author> findAll();
 
+    Author save(Author author);
+
+    void deleteById(Long id);
 }
