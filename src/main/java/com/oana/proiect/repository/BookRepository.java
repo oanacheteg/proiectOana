@@ -16,10 +16,6 @@ public interface BookRepository<Book> extends JpaRepository<Book, Long> {
 
     List<Book> findAll();
 
-    static <Book> Book save(Book book) {
-        // TODO Auto-generated method stub
-    
-    }
 
 	void deleteById(Long id);
 }

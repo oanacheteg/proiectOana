@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import com.oana.proiect.model.OrderItem;
 import com.oana.proiect.repository.OrderItemRepository;
-import com.oana.proiect.model.OrderItem;
 
 
 @Service
@@ -23,7 +22,7 @@ public class OrderItemService {
     }
 
     public OrderItem getOrderItemById(Long id) {
-        return orderItemRepository.findById(id).orElse(null);
+        return (OrderItem) orderItemRepository.findById(id).orElse(null);
     }
 
     public List<OrderItemService> getOrderItemsByOrderId(Long orderId) {
@@ -34,7 +33,7 @@ public class OrderItemService {
         return orderItemRepository.findByBookId(bookId);
     }
     public OrderItem saveOrderItem(OrderItem orderItem) {
-        return orderItemRepository.save(orderItem);
+        return (OrderItem) orderItemRepository.save(orderItem);
 
     }
 

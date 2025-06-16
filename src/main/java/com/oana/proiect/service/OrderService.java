@@ -29,8 +29,8 @@ public class OrderService<Order> {
         return orderRepository.findByCustomerId(customerId);
     }
 
-    public Order saveOrder(Order order, Object save) {
-        return (Order) save;
+    public Order saveOrder(Order order) {
+        return (Order) orderRepository.save(order);
     }
 
     public void deleteOrder(Long id) {

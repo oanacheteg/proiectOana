@@ -4,8 +4,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.oana.proiect.repository.CustomerRepository;
+import com.oana.proiect.model.Customer;
+
 @Service
-public class CustomerService<CustomerRepository> {
+public class CustomerService {
 
     private final CustomerRepository customerRepository;
 
@@ -13,19 +16,20 @@ public class CustomerService<CustomerRepository> {
         this.customerRepository = customerRepository;
     }
 
-    public <Customer> List<Customer> getAllCustomers() {
-        return ((Object) customerRepository).findAll();
+    public List<com.oana.proiect.model.Customer> getAllCustomers() {
+        return customerRepository.findAll();
+    }
+    public Customer getCustomerById(Long id) {
+        return (Customer) customerRepository.findById(id).orElse(null);
+
     }
 
-    public <Customer> Customer getCustomerById(Long id) {
-        return ((Object) customerRepository).findById(id).orElse(null);
-    }
-
-    public CustomerService saveCustomer(CustomerService customer) {
-        return customerRepository.save(customer);
+    public Customer saveCustomer(Customer customer) {
+        return (Customer) customerRepository.save(customer);
     }
 
     public void deleteCustomer(Long id) {
         customerRepository.deleteById(id);
     }
+
 }
