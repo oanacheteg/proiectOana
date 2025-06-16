@@ -1,8 +1,10 @@
-package main.java.com.oana.proiect.service;
+package com.oana.proiect.service;
 
 import com.oana.proiect.model.Author;
 import com.oana.proiect.repository.AuthorRepository;
 import java.util.List;
+
+import org.springframework.stereotype.Service;
 
 @Service
 public class AuthorService {
@@ -17,8 +19,8 @@ public class AuthorService {
         return authorRepository.findAll();
     }
 
-    public Author getAuthorById(Long id) {
-        return authorRepository.findByName(id).orElse(null);
+    public Author getAuthorById(Integer id) {
+        return authorRepository.findById(id).orElse(null);
     }
 
     public List<Author> getAuthorByName(String name) {

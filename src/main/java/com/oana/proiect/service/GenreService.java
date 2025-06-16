@@ -1,8 +1,9 @@
-package main.java.com.oana.proiect.service;
+package com.oana.proiect.service;
 
 import java.util.List;
 
-import main.java.com.oana.proiect.repository.GenreRepository;
+import org.springframework.stereotype.Service;
+import com.oana.proiect.repository.GenreRepository;
 
 @Service
 public class GenreService<Genre> {
@@ -14,11 +15,12 @@ public class GenreService<Genre> {
     }
 
     public List<Genre> getAllGenres() {
-        return ((Object) genreRepository).findAll();
+        return genreRepository.findAll();
     }
 
     public Genre getGenreById(Long id) {
-        return genreRepository.findByName(id).orElse(null);
+        List<Genre> genres = genreRepository.findByName(id);
+        return genres.isEmpty() ? null : genres.get(0);
     }
 
     public Object saveGenre(Genre genre) {
@@ -26,6 +28,6 @@ public class GenreService<Genre> {
     }
 
     public void deleteGenre(Long id) {
-        ((Object) genreRepository).deleteById(id);
+        genreRepository.deleteById(id);
     }
 }

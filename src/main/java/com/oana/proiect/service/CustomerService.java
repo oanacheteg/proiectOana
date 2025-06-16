@@ -1,6 +1,8 @@
-package main.java.com.oana.proiect.service;
+package com.oana.proiect.service;
 
 import java.util.List;
+
+import org.springframework.stereotype.Service;
 
 @Service
 public class CustomerService<CustomerRepository> {

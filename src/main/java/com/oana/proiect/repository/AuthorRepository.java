@@ -2,14 +2,15 @@ package com.oana.proiect.repository;
 
 import com.oana.proiect.model.Author;
 
-import main.java.com.oana.proiect.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface AuthorRepository extends JpaRepository<Author, Long> {
+public interface AuthorRepository extends JpaRepository<Author, Integer> {
 
-    List<Author> findByName(Long id);
+    List<Author> findByName(String name);
 
     List<Author> findAll();
 

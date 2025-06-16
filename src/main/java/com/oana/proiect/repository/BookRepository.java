@@ -3,7 +3,9 @@ package com.oana.proiect.repository;
 import java.util.List;
 import java.util.Optional;
 
-import main.java.com.oana.proiect.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 
 @Repository
 public interface BookRepository<Book> extends JpaRepository<Book, Long> {
@@ -16,7 +18,7 @@ public interface BookRepository<Book> extends JpaRepository<Book, Long> {
 
     static <Book> Book save(Book book) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
+    
     }
 
 	void deleteById(Long id);

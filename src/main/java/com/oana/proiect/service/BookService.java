@@ -1,8 +1,10 @@
-package main.java.com.oana.proiect.service;
+package com.oana.proiect.service;
 
 import com.oana.proiect.repository.BookRepository;
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.stereotype.Service;
 
 @Service
 public class BookService<Book> {

@@ -1,8 +1,13 @@
-package main.java.com.oana.proiect.service;
+package com.oana.proiect.service;
 
 import java.util.List;
 
-import main.java.com.oana.proiect.repository.OrderItemRepository;
+import org.springframework.stereotype.Service;
+
+import com.oana.proiect.model.OrderItem;
+import com.oana.proiect.repository.OrderItemRepository;
+import com.oana.proiect.model.OrderItem;
+
 
 @Service
 public class OrderItemService {
@@ -17,8 +22,8 @@ public class OrderItemService {
         return orderItemRepository.findAll();
     }
 
-    public OrderItemService getOrderItemById(Long id) {
-        return ((Object) orderItemRepository.findById(id)).orElse(null);
+    public OrderItem getOrderItemById(Long id) {
+        return orderItemRepository.findById(id).orElse(null);
     }
 
     public List<OrderItemService> getOrderItemsByOrderId(Long orderId) {
@@ -28,9 +33,9 @@ public class OrderItemService {
     public List<OrderItemService> getOrderItemsByBookId(Long bookId) {
         return orderItemRepository.findByBookId(bookId);
     }
-
-    public OrderItemService saveOrderItem(OrderItemService orderItem) {
+    public OrderItem saveOrderItem(OrderItem orderItem) {
         return orderItemRepository.save(orderItem);
+
     }
 
     public void deleteOrderItem(Long id) {

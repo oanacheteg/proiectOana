@@ -1,8 +1,11 @@
-package main.java.com.oana.proiect.service;
+package com.oana.proiect.service;
 
 import java.util.List;
 
-import main.java.com.oana.proiect.repository.OrderRepository;
+import org.springframework.stereotype.Service;
+
+import com.oana.proiect.repository.OrderRepository;
+
 
 @Service
 public class OrderService<Order> {
@@ -18,7 +21,8 @@ public class OrderService<Order> {
     }
 
     public Order getOrderById(Long id) {
-        return ((Object) orderRepository.findByCustomerId(id)).orElse(null);
+        List<Order> orders = orderRepository.findByCustomerId(id);
+        return orders.isEmpty() ? null : orders.get(0);
     }
 
     public List<Order> getOrdersByCustomerId(Long customerId) {
