@@ -4,11 +4,12 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.oana.proiect.model.Order;
 import com.oana.proiect.repository.OrderRepository;
 
 
 @Service
-public class OrderService<Order> {
+public class OrderService<T> {
 
     private final OrderRepository orderRepository;
 
@@ -16,17 +17,17 @@ public class OrderService<Order> {
         this.orderRepository = orderRepository;
     }
 
-    public List<Order> getAllOrders() {
-        return orderRepository.findAll();
+    public List<T> getAllOrders() {
+        return (List<T>) orderRepository.findAll();
     }
 
-    public Order getOrderById(Long id) {
-        List<Order> orders = orderRepository.findByCustomerId(id);
+    public T getOrderById(Long id) {
+        List<T> orders = (List<T>) orderRepository.findByCustomerId(id);
         return orders.isEmpty() ? null : orders.get(0);
     }
 
-    public List<Order> getOrdersByCustomerId(Long customerId) {
-        return orderRepository.findByCustomerId(customerId);
+    public List<T> getOrdersByCustomerId(Long customerId) {
+        return (List<T>) orderRepository.findByCustomerId(customerId);
     }
 
     public Order saveOrder(Order order) {

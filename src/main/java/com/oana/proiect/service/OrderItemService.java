@@ -17,19 +17,20 @@ public class OrderItemService {
         this.orderItemRepository = orderItemRepository;
     }
 
-    public List<OrderItemService> getAllOrderItems() {
+    public List<OrderItem> getAllOrderItems() {
         return orderItemRepository.findAll();
     }
 
     public OrderItem getOrderItemById(Long id) {
-        return (OrderItem) orderItemRepository.findById(id).orElse(null);
+        List<OrderItem> orderItems = orderItemRepository.findByOrderId(id);
+        return orderItems.isEmpty() ? null : orderItems.get(0);
     }
 
-    public List<OrderItemService> getOrderItemsByOrderId(Long orderId) {
+    public List<OrderItem> getOrderItemsByOrderId(Long orderId) {
         return orderItemRepository.findByOrderId(orderId);
     }
 
-    public List<OrderItemService> getOrderItemsByBookId(Long bookId) {
+    public List<OrderItem> getOrderItemsByBookId(Long bookId) {
         return orderItemRepository.findByBookId(bookId);
     }
     public OrderItem saveOrderItem(OrderItem orderItem) {

@@ -1,5 +1,6 @@
 package com.oana.proiect.service;
 
+import com.oana.proiect.model.Book;
 import com.oana.proiect.repository.BookRepository;
 import java.util.List;
 import java.util.Optional;
@@ -7,33 +8,31 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BookService<Book> {
+public class BookService {
 
-    @SuppressWarnings("rawtypes")
-    private final BookRepository BookRepository;
+    private final BookRepository bookRepository;
 
-    public BookService(@SuppressWarnings("rawtypes") BookRepository BookRepository) {
-        this.BookRepository = BookRepository;
+    public BookService(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
     }
 
     public List<Book> getAllBooks() {
-        return BookRepository.findAll();
+        return bookRepository.findAll();
     }
 
     public Optional<Book> getBookById(Long id) {
-        return BookRepository.findById(id);
+        return bookRepository.findById(id);
     }
 
-    @SuppressWarnings("unchecked")
     public List<Book> getBooksByTitle(String title) {
-        return BookRepository.findByTitle(title);
+        return bookRepository.findByTitle(title);
     }
 
-    public Book saveBook(Book Book) {
-        return com.oana.proiect.repository.BookRepository.save(Book);
+    public Book saveBook(Book book) {
+        return bookRepository.save(book);
     }
 
     public void deleteBook(Long id) {
-        BookRepository.deleteById(id);
+        bookRepository.deleteById(id);
     }
 }

@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.oana.proiect.model.Order;
+
 @Repository
-public interface OrderRepository<Order> extends JpaRepository<Order, Long> {
+public interface OrderRepository extends JpaRepository<Order, Integer> {
 
     List<Order> findByCustomerId(Long customerId);
 

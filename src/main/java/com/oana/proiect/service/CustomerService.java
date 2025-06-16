@@ -19,9 +19,8 @@ public class CustomerService {
     public List<com.oana.proiect.model.Customer> getAllCustomers() {
         return customerRepository.findAll();
     }
-    public Customer getCustomerById(Long id) {
-        return (Customer) customerRepository.findById(id).orElse(null);
-
+    public Customer getCustomerById(Integer id) {
+        return customerRepository.findById(id).orElse(null);
     }
 
     public Customer saveCustomer(Customer customer) {
