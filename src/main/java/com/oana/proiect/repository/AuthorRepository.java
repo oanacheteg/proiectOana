@@ -14,7 +14,6 @@ public interface AuthorRepository extends JpaRepository<Author, Integer> {
 
     List<Author> findAll();
 
-    Author save(Author author);
 
     void deleteById(Long id);
 }

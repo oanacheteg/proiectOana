@@ -9,7 +9,7 @@ import com.oana.proiect.model.Genre;
 @Repository
 public interface GenreRepository extends JpaRepository<Genre, Integer> {
 
-    <Genre> List<Genre> findByName(Long id);
+    <Genre> List<Genre> findByName(String name);
 
-    <Genre> Genre saveGenre(Genre genre);
+    <Genre> List<Genre> findById(Long id);
 }

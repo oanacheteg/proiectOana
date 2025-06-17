@@ -36,7 +36,7 @@ public class BookController {
         return (Book) bookService.saveBook(book);     //  creeaza carte noua si o salveaza in baza de date 
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}")                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
     public void deleteBook(@PathVariable Long id) {
         bookService.deleteBook(id);             // sterge cartea dupa id
     }

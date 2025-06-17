@@ -12,7 +12,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 @Entity
-    public class Order {
+    public class CustomerOrder {
     
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,9 +25,9 @@ import jakarta.persistence.OneToMany;
         @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)    //o comanda poate sa contina mai multe produse
         private List<OrderItem> orderItems;
     
-        public Order() {}
+        public CustomerOrder() {}
     
-        public Order(Customer customer) {     //se initializeaza comanda asociindu-se unui client
+        public CustomerOrder(Customer customer) {     //se initializeaza comanda asociindu-se unui client
             this.customer = customer;
         }
     

@@ -1,7 +1,8 @@
 package com.oana.proiect.controller;
 
 import org.springframework.web.bind.annotation.*;
-import com.oana.proiect.model.Order;
+
+import com.oana.proiect.model.CustomerOrder;
 import com.oana.proiect.service.OrderService;
 import java.util.List;
 
@@ -16,23 +17,23 @@ public class OrderController {
     }
 
     @GetMapping
-    public List<Order> getAllOrders() {
+    public List<CustomerOrder> getAllOrders() {
         return orderService.getAllOrders();  // retturneaza toate comenzile 
     }
 
     @GetMapping("/{id}")
-    public Order getOrderById(@PathVariable Long id) {
-        return (Order) orderService.getOrderById(id);  //retuneaza o comanda dupa id
+    public CustomerOrder getOrderById(@PathVariable Long id) {
+        return (CustomerOrder) orderService.getOrderById(id);  //retuneaza o comanda dupa id
     }
 
     @GetMapping("/customer/{customerId}")
-    public List<Order> getOrdersByCustomerId(@PathVariable Long customerId) {
+    public List<CustomerOrder> getOrdersByCustomerId(@PathVariable Long customerId) {
         return orderService.getOrdersByCustomerId(customerId);  //retureaza comenzile unui client dupa id ul lui
     }
 
     @PostMapping
-    public Order createOrder(@RequestBody Order order) {
-        return (Order) orderService.saveOrder(order);  //creaaza o comanda noua si o salveaza 
+    public CustomerOrder createOrder(@RequestBody CustomerOrder order) {
+        return (CustomerOrder) orderService.saveOrder(order);  //creaaza o comanda noua si o salveaza 
     }
 
     @DeleteMapping("/{id}")

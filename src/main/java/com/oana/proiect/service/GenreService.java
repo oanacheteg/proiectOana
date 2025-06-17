@@ -21,7 +21,7 @@ public class GenreService {
     }
 
     public Genre getGenreById(Long id) {
-        List<Genre> genres = genreRepository.findByName(id);
+        List<Genre> genres = genreRepository.findById(id);
         return genres.isEmpty() ? null : genres.get(0);
     }
 
@@ -31,5 +31,10 @@ public class GenreService {
 
     public void deleteGenre(Long id) {
         genreRepository.deleteById(id.intValue());
+    }
+
+    public Genre updateGenre(Long id, Genre genre) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'updateGenre'");
     }
 }

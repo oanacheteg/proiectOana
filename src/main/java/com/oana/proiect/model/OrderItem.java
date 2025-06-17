@@ -17,7 +17,7 @@ public class OrderItem {
 
     @ManyToOne //o comanda  poate contine mai multe produse
     @JoinColumn(name = "order_id")    //fiecare produs apartine unei singure comenzi
-    private Order order;
+    private CustomerOrder order;
 
     @ManyToOne       //o carte poate sa fie cumparata de mai multe ori
     @JoinColumn(name = "book_id")  //fiecare carte are id ul ei 
@@ -28,7 +28,7 @@ public class OrderItem {
 
     public OrderItem() {}
 
-    public OrderItem(Order order, Book book, int quantity) {
+    public OrderItem(CustomerOrder order, Book book, int quantity) {
         this.order = order;
         this.book = book;
         this.quantity = quantity;
@@ -37,8 +37,8 @@ public class OrderItem {
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
-    public Order getOrder() { return order; }
-    public void setOrder(Order order) { this.order = order; }
+    public CustomerOrder getOrder() { return order; }
+    public void setOrder(CustomerOrder order) { this.order = order; }
 
     public Book getBook() { return book; }
     public void setBook(Book book) { this.book = book; }

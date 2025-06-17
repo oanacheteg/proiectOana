@@ -20,7 +20,7 @@ public class Customer {
     private String name;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)  //un client poate sa aiba mai multe comenzi
-    private List<Order> orders;
+    private List<CustomerOrder> orders;
 
     public Customer() {}
 
@@ -34,7 +34,7 @@ public class Customer {
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
-    public List<Order> getOrders() { return orders; }
-    public void setOrders(List<Order> orders) { this.orders = orders; }
+    public List<CustomerOrder> getOrders() { return orders; }
+    public void setOrders(List<CustomerOrder> orders) { this.orders = orders; }
 
 }
