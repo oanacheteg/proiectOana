@@ -6,7 +6,7 @@ import com.oana.proiect.model.Book;
 import com.oana.proiect.service.BookService;
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/books")
 public class BookController {
 
@@ -31,7 +31,7 @@ public class BookController {
         return bookService.getBooksByTitle(title);     // le gaseste dupa titlu 
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public Book createBook(@RequestBody Book book) {
         return (Book) bookService.saveBook(book);     //  creeaza carte noua si o salveaza in baza de date 
     }

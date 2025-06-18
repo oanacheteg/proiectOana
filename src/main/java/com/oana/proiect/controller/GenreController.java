@@ -28,10 +28,10 @@ public class GenreController {
      */
     @GetMapping("/{id}")
     public Genre getGenreById(@PathVariable Long id) {
-        return genreService.getGenreById(id)
-                .orElseThrow(() -> new RuntimeException("Genul nu a fost găsit!"));
+         return genreService.getGenreById(id)
+            .orElseThrow(() -> new RuntimeException("Genul nu a fost găsit!"));
     }
-
+    
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Genre createGenre(@RequestBody Genre genre) {

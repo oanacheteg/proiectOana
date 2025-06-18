@@ -1,6 +1,7 @@
 package com.oana.proiect.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -20,9 +21,8 @@ public class GenreService {
         return (List<Genre>) genreRepository.findAll();
     }
 
-    public Genre getGenreById(Long id) {
-        List<Genre> genres = genreRepository.findById(id);
-        return genres.isEmpty() ? null : genres.get(0);
+    public Optional<Genre> getGenreById(Long id) {
+        return genreRepository.findById(id); // Assuming genreRepository is a JpaRepository
     }
 
     public Genre saveGenre(Genre genre) {

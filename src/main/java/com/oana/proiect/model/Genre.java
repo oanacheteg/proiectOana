@@ -37,29 +37,7 @@ public class Genre {
     public List<Book> getBooks() { return books; }
     public void setBooks(List<Book> books) { this.books = books; }
 
-    public Genre orElseThrow(Object object) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'orElseThrow'");
-    }
 
-    public Genre orElseThrow(Object object) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'orElseThrow'");
-    }
-
-	public Genre orElseThrow(Object object) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'orElseThrow'");
-	}
-
-    public Genre orElseThrow(Object object) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'orElseThrow'");
-    }
-
-	public Genre orElseThrow(Object object) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'orElseThrow'");
-	}
+    
 }
 
