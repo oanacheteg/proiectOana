@@ -31,10 +31,16 @@ public class BookController {
         return bookService.getBooksByTitle(title);     // le gaseste dupa titlu 
     }
 
-    @PostMapping("/create")
+    @RequestMapping(value = "/create",method = RequestMethod.POST)
     public Book createBook(@RequestBody Book book) {
-        return (Book) bookService.saveBook(book);     //  creeaza carte noua si o salveaza in baza de date 
+        return bookService.saveBook(book);
     }
+
+
+    //@PostMapping("/create")
+    //public Book createBook(@RequestBody Book book) {
+      //  return (Book) bookService.saveBook(book);     //  creeaza carte noua si o salveaza in baza de date 
+    //}
 
     @DeleteMapping("/{id}")                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
     public void deleteBook(@PathVariable Long id) {
